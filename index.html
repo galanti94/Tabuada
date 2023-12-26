@@ -8,43 +8,19 @@
 </head>
 
 <body>
+    <div>
+        <h3>Seu desafio matemático é:</h3>
+        <p class="campoDesafio"></p>
+    </div>
 
-    <h1>Seu desafio matemático é:</h1>
-    <p class="campoDesafio"></p>    
-    <form action="">
-        <input type="number" id="resposta" name="resposta">   
-        <input type="submit" id="btnEnviar" name="btnEnviar">   
-    </form>
+    <div class="form">
+        <label for="guessField">Resultado: </label>
+        <input type="number" min="1" max="100" required id="resposta" class="resposta">
+        <input type="submit" value="Checar" class="btnEnviar">
+    </div>
+    <p id="feedback">Será que você vai acertar?</p>
 
-    <script>
-        const campoDesafio = document.querySelector('.campoDesafio');
-        const campoResposta = document.querySelector('#resposta');        
-        const btnNovoDesafio = document.querySelector('#btnEnviar');
-        
-        let primeiroNumero = Math.floor(Math.random() * 10) + 1;
-        let segundoNumero = Math.floor(Math.random() * 10) + 1;
-
-        function desafio() {
-            primeiroNumero = Math.floor(Math.random() * 10) + 1;
-            segundoNumero = Math.floor(Math.random() * 10) + 1;
-
-            campoDesafio.textContent = `${primeiroNumero} x ${segundoNumero}`;
-        }
-
-        function checarResposta() {            
-            let respostaCorreta = primeiroNumero * segundoNumero;
-            let respostaDoUsuario = campoResposta.value;
-            if (respostaCorreta === respostaDoUsuario) {
-                alert('Você acertou!');
-            } else {
-                alert('Você errou!');
-            }                      
-        }
-
-        desafio();
-
-        btnNovoDesafio.addEventListener('click', checarResposta)
-    </script>
+    <script src="scripts.js" defer></script>
 
 </body>
 
