@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Seu desafio matemático é:</h1>
+    <p class="campoDesafio"></p>    
+    <form action="">
+        <input type="number" id="resposta" name="resposta">   
+        <input type="submit" id="btnEnviar" name="btnEnviar">   
+    </form>
+
+    <script>
+        const campoDesafio = document.querySelector('.campoDesafio');
+        const campoResposta = document.querySelector('#resposta');        
+        const btnNovoDesafio = document.querySelector('#btnEnviar');
+        
+        let primeiroNumero = Math.floor(Math.random() * 10) + 1;
+        let segundoNumero = Math.floor(Math.random() * 10) + 1;
+
+        function desafio() {
+            primeiroNumero = Math.floor(Math.random() * 10) + 1;
+            segundoNumero = Math.floor(Math.random() * 10) + 1;
+
+            campoDesafio.textContent = `${primeiroNumero} x ${segundoNumero}`;
+        }
+
+        function checarResposta() {            
+            let respostaCorreta = primeiroNumero * segundoNumero;
+            let respostaDoUsuario = campoResposta.value;
+            if (respostaCorreta === respostaDoUsuario) {
+                alert('Você acertou!');
+            } else {
+                alert('Você errou!');
+            }                      
+        }
+
+        desafio();
+
+        btnNovoDesafio.addEventListener('click', checarResposta)
+    </script>
+
+</body>
+
+</html>
